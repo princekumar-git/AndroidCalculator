@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_calculator/division_service.dart';
 import 'multiply_service.dart';
-
-
+import 'division_service.dart';
 
 class CalculatorPage extends StatefulWidget {
   const CalculatorPage({super.key});
@@ -24,13 +22,18 @@ class _CalculatorPageState extends State<CalculatorPage> {
         _num1 = 0.0;
         _operator = "";
         _clearDisplay = false;
-      } else if (buttonText == "/") {
+      } else if (buttonText == "+" || buttonText == "-" || buttonText == "x" || buttonText == "/") {
         _num1 = double.parse(_output);
         _operator = buttonText;
         _clearDisplay = true;
       } else if (buttonText == "=") {
-        if (_operator == "/") {
-          _output = DivisionService.divide(_num1, double.parse(_output));
+        double num2 = double.parse(_output);
+        switch (_operator) {
+          case "+": _output = (_num1 + num2).toString(); break;
+          case "-": _output = (_num1 - num2).toString(); break;
+          case "x": _output = MultiplyService.multiply(_num1, num2); break;
+          case "/": _output = DivisionService.divide(_num1, num2); break;
+          default: break;
         }
         _num1 = 0.0;
         _operator = "";
@@ -48,22 +51,19 @@ class _CalculatorPageState extends State<CalculatorPage> {
     });
   }
 
-  Widget _buildButton(String buttonText, {Color? color}) {
+  Widget _buildButton(String text, {Color? color}) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ElevatedButton(
-          onPressed: () => _handleButtonPress(buttonText),
+          onPressed: () => _handleButtonPress(text),
           style: ElevatedButton.styleFrom(
             backgroundColor: color ?? Colors.grey[800],
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             padding: const EdgeInsets.all(20),
           ),
-          child: Text(
-            buttonText,
-            style: const TextStyle(fontSize: 24),
-          ),
+          child: Text(text, style: const TextStyle(fontSize: 24)),
         ),
       ),
     );
@@ -72,71 +72,23 @@ class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Calculator UI'),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: AppBar(title: const Text("Calculator UI"), backgroundColor: Colors.transparent, elevation: 0),
       body: Column(
-        children: <Widget>[
+        children: [
           Expanded(
             child: Container(
               alignment: Alignment.bottomRight,
               padding: const EdgeInsets.all(24),
-              child: Text(
-                _output,
-                style: Theme.of(context).textTheme.displayLarge,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
+              child: Text(_output, style: Theme.of(context).textTheme.displayLarge, maxLines: 1, overflow: TextOverflow.ellipsis),
             ),
           ),
           Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  _buildButton("C", color: Colors.grey[700]),
-                  _buildButton("(", color: Colors.grey[700]),
-                  _buildButton(")", color: Colors.grey[700]),
-                  _buildButton("/", color: Colors.orange),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  _buildButton("7"),
-                  _buildButton("8"),
-                  _buildButton("9"),
-                  _buildButton("x", color: Colors.orange),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  _buildButton("4"),
-                  _buildButton("5"),
-                  _buildButton("6"),
-                  _buildButton("-", color: Colors.orange),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  _buildButton("1"),
-                  _buildButton("2"),
-                  _buildButton("3"),
-                  _buildButton("+", color: Colors.orange),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  _buildButton("0"),
-                  _buildButton("."),
-                  _buildButton("="),
-                ],
-              ),
+            children: [
+              Row(children: [_buildButton("C", color: Colors.grey[700]), _buildButton("("), _buildButton(")"), _buildButton("/", color: Colors.orange)]),
+              Row(children: [_buildButton("7"), _buildButton("8"), _buildButton("9"), _buildButton("x", color: Colors.orange)]),
+              Row(children: [_buildButton("4"), _buildButton("5"), _buildButton("6"), _buildButton("-", color: Colors.orange)]),
+              Row(children: [_buildButton("1"), _buildButton("2"), _buildButton("3"), _buildButton("+", color: Colors.orange)]),
+              Row(children: [_buildButton("0"), _buildButton("."), _buildButton("=")]),
             ],
           )
         ],
