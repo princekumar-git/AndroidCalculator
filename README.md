@@ -1,49 +1,58 @@
-# Team Sync ⚡
+# Android Calculator ✅
 
-This project is a small, collaborative exercise designed to help us practice and improve our team coordination, as well as our skills in **Git/GitHub**, **Dart**, and **Flutter**.
+A collaborative project built with **Flutter** to practice teamwork, Git/GitHub workflows, and mobile app development.  
 
------
+This project was designed as a **team sync exercise** to simulate real-world development collaboration — from branching strategies to pull requests, code reviews, and conflict resolution.  
 
-## Getting Started 🚀
+---
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/princekumar-git/AndroidCalculator.git
-    ```
-2.  **Navigate to the project directory:**
-    ```bash
-    cd AndroidCalculator
-    ```
-3.  **Install dependencies:**
-    ```bash
-    flutter pub get
-    ```
-4.  **Run the app:**
-    ```bash
-    flutter run
-    ```
+## 🎉 Project Completed  
 
------
+We’ve successfully:  
+- Built a functional **Calculator App** in Flutter.  
+- Practiced **branching, commits, pull requests, and code reviews**.  
+- Learned how to **resolve merge conflicts** and maintain clean Git history.  
+- Enhanced our **team coordination and communication skills**.  
 
-## Project Goal 🎯
+---
 
-Our primary goal is to simulate a real-world development workflow on a simplified scale. This project isn't about creating a complex application; it's about learning to work together effectively. We will focus on:
+## 🚀 Getting Started  
 
-  * **Branching Strategy:** Creating and managing feature branches.
-  * **Version Control:** Committing changes with clear, descriptive messages.
-  * **Code Reviews:** Reviewing each other's pull requests to ensure code quality.
-  * **Conflict Resolution:** Learning to resolve merge conflicts smoothly.
+If you’d like to try out the app:  
 
------
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/princekumar-git/AndroidCalculator.git
+🛠️ Features
 
-## How to Contribute 🤝
+Basic arithmetic operations ➕ ➖ ✖️ ➗
 
-1.  **Create a new branch** from `main` for your feature or task. Use a clear naming convention, like `feature/add-login-screen` or `bugfix/fix-button-color`.
-2.  **Make your changes** and test them locally.
-3.  **Commit your changes** with a meaningful commit message (e.g., "feat: Add user profile screen" or "fix: Resolve UI alignment issue").
-4.  **Push your branch** to GitHub.
-5.  **Create a Pull Request (PR)** to merge your branch back into `main`. .
-6.  **Request a code review** from a team member.
-7.  **Address any feedback** and merge your PR once approved.
+Clean and responsive Flutter UI
 
-Good luck and have fun\! 😊
+Modular code structure for easier collaboration
+
+Open-source and extendable
+
+👥 Contributors
+
+This project was completed as a team collaboration exercise.
+A big shoutout to all contributors who made this possible! 🎇
+
+Prince Kumar
+
+Rupam Bhardwaj
+
+📌 Learning Outcomes
+
+Through this project, we gained practical experience in:
+
+Git & GitHub workflows (branching, PRs, reviews)
+
+Flutter app development
+
+Collaboration in a simulated real-world project
+
+
+⭐ Conclusion
+
+This project was not just about building a calculator — it was about learning how to work effectively as a team, manage codebases, review each other’s work, and deliver a functional app collaboratively. 🚀
